@@ -12,41 +12,29 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <ProtectedRoute />,
     children: [
       {
-        path: "/register",
-        element: <Register />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
         path: "profile",
-        element: (
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        ),
+        element: <Profile />,
       },
       {
         path: "topics",
-        element: (
-          <ProtectedRoute>
-            <Topics />
-          </ProtectedRoute>
-        ),
+        element: <Topics />,
       },
       {
         path: "progress",
-        element: (
-          <ProtectedRoute>
-            <Progress />
-          </ProtectedRoute>
-        ),
+        element: <Progress />,
       },
     ],
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
