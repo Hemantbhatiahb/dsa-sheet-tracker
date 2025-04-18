@@ -5,8 +5,7 @@ dotenv.config();
 const Topic = require("./models/Topic"); // adjust if needed
 
 mongoose
-  .connect(
-    "mongodb+srv://hemant:RpY5383zQyF8nQPe@cluster0.v0s5q.mongodb.net/dsa-sheet?retryWrites=true&w=majority&appName=Cluster0",
+  .connect(process.env.MONGODB_URI,
     {
       useUnifiedTopology: true,
     }
