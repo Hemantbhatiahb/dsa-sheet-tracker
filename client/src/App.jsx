@@ -7,6 +7,7 @@ import Topics from "./pages/Topics";
 import Progress from "./pages/Progress";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -14,26 +15,38 @@ const router = createBrowserRouter([
     element: <Home />,
     children: [
       {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
         path: "profile",
-        element: <Profile />,
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "topics",
-        element: <Topics />,
+        element: (
+          <ProtectedRoute>
+            <Topics />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "progress",
-        element: <Progress />,
+        element: (
+          <ProtectedRoute>
+            <Progress />
+          </ProtectedRoute>
+        ),
       },
     ],
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
   },
 ]);
 
